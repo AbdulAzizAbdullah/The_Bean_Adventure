@@ -15,14 +15,18 @@ public class PlayerMovement : MonoBehaviour
   public LayerMask GroundMask;
   bool isgrounded;
   Vector3 velocity;
-
+  public TimeCtrl timeCtrl;
  
      ////////////////////////////////////////// 
     void Update()
     {
       movement();
       JumpAndGravity();
-      
+      if(Input.GetButtonDown("Fire2") )
+      {
+      timeCtrl.doslowmotion();
+      }
+
     }
 
     //////////////////////////////////////////
@@ -55,9 +59,7 @@ public class PlayerMovement : MonoBehaviour
       //yes Gravity are moveing YOU
       Controller.Move(velocity * Time.deltaTime); 
     }
-
-    
-
-
+     
+  
 
 }
